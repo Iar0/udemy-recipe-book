@@ -1,20 +1,32 @@
+import { routing } from './app.routes';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header.component';
+
+import { RecipeService } from './recipes/recipe.service';
+import { ShoppingListService } from './shopping-list/shopping-list.service';
+import {CodeModule} from "./code.module";
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule
+    HttpModule,
+    routing,
+      HttpModule,
+      CodeModule
   ],
-  providers: [],
+  providers: [
+    RecipeService,
+    ShoppingListService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
